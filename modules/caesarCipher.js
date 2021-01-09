@@ -1,10 +1,4 @@
-const messageRegex = /[^a-z .,!?'"]/;
-const letterRegex = /[a-z]/;
-const alphabet = 26;
-const initialCharCode = 97;
-
-
-const encipherMessage = (message, key) => {
+const encipherMessage = (message, key, letterRegex, alphabet, initialCharCode) => {
   let newCharCode;
   let newMessage = '';
   for(let i = 0; i < message.length; i++) {
@@ -18,7 +12,7 @@ const encipherMessage = (message, key) => {
   return newMessage;
 };
 
-const decipherMessage = (message, key) => {
+const decipherMessage = (message, key, letterRegex, alphabet, initialCharCode) => {
   let newCharCode;
   let newMessage = '';
   for(let i = 0; i < message.length; i++) {
@@ -34,6 +28,11 @@ const decipherMessage = (message, key) => {
 
 const caesarCipher = (message, key, instruction) => {
 
+  const messageRegex = /[^a-z .,!?'"]/;
+  const letterRegex = /[a-z]/;
+  const alphabet = 26;
+  const initialCharCode = 97;
+
   if (typeof message === typeof '' && 
     typeof key === typeof 1 && 
     (instruction === 'encipher' || instruction === 'decipher')) {
@@ -43,8 +42,8 @@ const caesarCipher = (message, key, instruction) => {
     if (!messageRegex.test(lowerMessage)) {
       const processedMessage = 
       instruction === 'encipher' ? 
-      encipherMessage(lowerMessage, key) : 
-      decipherMessage(lowerMessage, key);
+      encipherMessage(lowerMessage, key, letterRegex, alphabet, initialCharCode) : 
+      decipherMessage(lowerMessage, key, letterRegex, alphabet, initialCharCode);
 
       return processedMessage;
     }
