@@ -12,6 +12,6 @@ test('takes two negatives numbers and returns add, substract, divide and multipl
   expect(calculator(-6, -2)).toStrictEqual({add: -8, substract: -4, divide: 3, multiply: 12});
 })
 
-test('trow an error if the parameter is not a number', () => {
+test('throw an error if the parameter is not a number', () => {
   expect(() => calculator('oops!')).toThrow('pass two numbers!');
 })

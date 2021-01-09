@@ -12,6 +12,6 @@ test('takes a string with whitespaces and returns that string trimmed and revers
   expect(reverse('     trim that     ')).toBe('taht mirt');
 })
 
-test('trow an error if the parameter is not a string', () => {
+test('throw an error if the parameter is not a string', () => {
   expect(() => reverse(123)).toThrow('pass a string!');
 })

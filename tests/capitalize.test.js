@@ -12,6 +12,6 @@ test('takes a phrase and returns that phrase with the first character capitalize
   expect(capitalize('     trim that     ')).toBe('Trim that');
 })
 
-test('trow an error if the parameter is not a string', () => {
+test('throw an error if the parameter is not a string', () => {
   expect(() => capitalize(123)).toThrow('pass a string!');
 })
